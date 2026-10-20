@@ -1,0 +1,54 @@
+name: Collect public article metadata
+on:
+  schedule:
+    # UTC: 07:30 IST and 18:30 IST. GitHub jobs can be delayed or skipped.
+    - cron: '0 2 * * *'
+    - cron: '0 13 * * *'
+  workflow_dispatch:
+    inputs:
+      edition:
+        description: 'Edition to tag newly discovered items'
+        required: true
+        default: 'manual'
+        type: choice
+        options: [manual, morning, evening]
+      backfill_days:
+        description: 'Collect recent published feed items (5 for initial archive backfill; 0 for normal runs)'
+        required: false
+        default: '5'
+        type: string
+permissions:
+  contents: write
+concurrency:
+  group: intelligence-collection
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Collect metadata from public RSS/Atom feeds
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          SCHEDULE: ${{ github.event.schedule }}
+          MANUAL_EDITION: ${{ inputs.edition }}
+          BACKFILL_DAYS: ${{ inputs.backfill_days }}
+        run: |
+          if [ "$EVENT_NAME" = "schedule" ]; then
+            if [ "$SCHEDULE" = "0 2 * * *" ]; then EDITION=morning; else EDITION=evening; fi
+          else EDITION=${MANUAL_EDITION:-manual}; fi
+          if [ "$EVENT_NAME" = "schedule" ]; then DAYS=0; else DAYS=${BACKFILL_DAYS:-5}; fi
+          python collector.py --edition "$EDITION" --backfill-days "$DAYS"
+      - name: Commit article index
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/articles.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Update public feed article index"
+            git push
+          fi
