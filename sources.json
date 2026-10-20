@@ -1,25 +1,202 @@
 [
- {"name":"BBC World","category":"News","url":"https://feeds.bbci.co.uk/news/world/rss.xml"},
- {"name":"BBC Business","category":"Markets","url":"https://feeds.bbci.co.uk/news/business/rss.xml"},
- {"name":"BBC Technology","category":"Science & Technology","url":"https://feeds.bbci.co.uk/news/technology/rss.xml"},
- {"name":"The Guardian World","category":"News","url":"https://www.theguardian.com/world/rss"},
- {"name":"The Guardian Business","category":"Markets","url":"https://www.theguardian.com/uk/business/rss"},
- {"name":"The Guardian Environment","category":"Science & Technology","url":"https://www.theguardian.com/environment/rss"},
- {"name":"The Conversation","category":"Research","url":"https://theconversation.com/global/articles.atom"},
- {"name":"MIT Technology Review","category":"Science & Technology","url":"https://www.technologyreview.com/feed/"},
- {"name":"Nature","category":"Research","url":"https://www.nature.com/nature.rss"},
- {"name":"ScienceDaily","category":"Science & Technology","url":"https://www.sciencedaily.com/rss/all.xml"},
- {"name":"Brookings","category":"Research","url":"https://www.brookings.edu/feed/"},
- {"name":"CFR","category":"Geopolitics","url":"https://www.cfr.org/rss.xml"},
- {"name":"Foreign Policy","category":"Geopolitics","url":"https://foreignpolicy.com/feed/"},
- {"name":"War on the Rocks","category":"Geopolitics","url":"https://warontherocks.com/feed/"},
- {"name":"ORF","category":"India & Policy","url":"https://www.orfonline.org/feed"},
- {"name":"PIB India","category":"India & Policy","url":"https://pib.gov.in/rss.aspx"},
- {"name":"PRS India","category":"India & Policy","url":"https://prsindia.org/rss.xml"},
- {"name":"EconTalk","category":"Podcasts","url":"https://www.econtalk.org/feed/podcast/"},
- {"name":"Macro Musings","category":"Podcasts","url":"https://macromusings.libsyn.com/rss"},
- {"name":"Conversations with Tyler","category":"Podcasts","url":"https://conversationswithtyler.com/feed/"},
- {"name":"Odd Lots","category":"Podcasts","url":"https://feeds.bloomberg.fm/BLM8864403288"},
- {"name":"The Ezra Klein Show","category":"Podcasts","url":"https://feeds.simplecast.com/82FI35Px"},
- {"name":"Dwarkesh Podcast","category":"Podcasts","url":"https://api.substack.com/feed/podcast/69345.rss"}
+  {
+    "name": "BBC World",
+    "category": "News",
+    "url": "https://feeds.bbci.co.uk/news/world/rss.xml"
+  },
+  {
+    "name": "BBC Business",
+    "category": "Markets",
+    "url": "https://feeds.bbci.co.uk/news/business/rss.xml"
+  },
+  {
+    "name": "BBC Technology",
+    "category": "Science & Technology",
+    "url": "https://feeds.bbci.co.uk/news/technology/rss.xml"
+  },
+  {
+    "name": "The Guardian World",
+    "category": "News",
+    "url": "https://www.theguardian.com/world/rss"
+  },
+  {
+    "name": "The Guardian Business",
+    "category": "Markets",
+    "url": "https://www.theguardian.com/uk/business/rss"
+  },
+  {
+    "name": "The Guardian Environment",
+    "category": "Science & Technology",
+    "url": "https://www.theguardian.com/environment/rss"
+  },
+  {
+    "name": "The Conversation",
+    "category": "Research",
+    "url": "https://theconversation.com/global/articles.atom"
+  },
+  {
+    "name": "MIT Technology Review",
+    "category": "Science & Technology",
+    "url": "https://www.technologyreview.com/feed/"
+  },
+  {
+    "name": "Nature",
+    "category": "Research",
+    "url": "https://www.nature.com/nature.rss"
+  },
+  {
+    "name": "ScienceDaily",
+    "category": "Science & Technology",
+    "url": "https://www.sciencedaily.com/rss/all.xml"
+  },
+  {
+    "name": "Brookings",
+    "category": "Research",
+    "url": "https://www.brookings.edu/feed/"
+  },
+  {
+    "name": "CFR",
+    "category": "Geopolitics",
+    "url": "https://www.cfr.org/rss.xml"
+  },
+  {
+    "name": "Foreign Policy",
+    "category": "Geopolitics",
+    "url": "https://foreignpolicy.com/feed/"
+  },
+  {
+    "name": "War on the Rocks",
+    "category": "Geopolitics",
+    "url": "https://warontherocks.com/feed/"
+  },
+  {
+    "name": "ORF",
+    "category": "India & Policy",
+    "url": "https://www.orfonline.org/feed"
+  },
+  {
+    "name": "PIB India",
+    "category": "India & Policy",
+    "url": "https://pib.gov.in/rss.aspx"
+  },
+  {
+    "name": "PRS India",
+    "category": "India & Policy",
+    "url": "https://prsindia.org/rss.xml"
+  },
+  {
+    "name": "EconTalk",
+    "category": "Podcasts",
+    "url": "https://www.econtalk.org/feed/podcast/"
+  },
+  {
+    "name": "Macro Musings",
+    "category": "Podcasts",
+    "url": "https://macromusings.libsyn.com/rss"
+  },
+  {
+    "name": "Conversations with Tyler",
+    "category": "Podcasts",
+    "url": "https://conversationswithtyler.com/feed/"
+  },
+  {
+    "name": "Odd Lots",
+    "category": "Podcasts",
+    "url": "https://feeds.bloomberg.fm/BLM8864403288"
+  },
+  {
+    "name": "The Ezra Klein Show",
+    "category": "Podcasts",
+    "url": "https://feeds.simplecast.com/82FI35Px"
+  },
+  {
+    "name": "Dwarkesh Podcast",
+    "category": "Podcasts",
+    "url": "https://api.substack.com/feed/podcast/69345.rss"
+  },
+  {
+    "name": "IMF News",
+    "category": "Economy & Policy",
+    "url": "https://www.imf.org/en/News/RSS"
+  },
+  {
+    "name": "World Bank Blogs",
+    "category": "Economy & Policy",
+    "url": "https://blogs.worldbank.org/en/rss.xml"
+  },
+  {
+    "name": "OECD",
+    "category": "Economy & Policy",
+    "url": "https://www.oecd.org/en/about/news/rss.xml"
+  },
+  {
+    "name": "BIS",
+    "category": "Economy & Policy",
+    "url": "https://www.bis.org/rss/index.htm"
+  },
+  {
+    "name": "NBER Working Papers",
+    "category": "Research",
+    "url": "https://www.nber.org/rss/new.xml"
+  },
+  {
+    "name": "CSIS",
+    "category": "Defence & Security",
+    "url": "https://www.csis.org/rss.xml"
+  },
+  {
+    "name": "Chatham House",
+    "category": "Global intellectual forums",
+    "url": "https://www.chathamhouse.org/rss.xml"
+  },
+  {
+    "name": "Carnegie Endowment",
+    "category": "Global intellectual forums",
+    "url": "https://carnegieendowment.org/rss.xml"
+  },
+  {
+    "name": "Harvard Business Review",
+    "category": "Business & Strategy",
+    "url": "https://hbr.org/feed"
+  },
+  {
+    "name": "TechCrunch",
+    "category": "Technology & Products",
+    "url": "https://techcrunch.com/feed/"
+  },
+  {
+    "name": "The Register",
+    "category": "Technology & Products",
+    "url": "https://www.theregister.com/headlines.atom"
+  },
+  {
+    "name": "Ars Technica",
+    "category": "Technology & Products",
+    "url": "https://feeds.arstechnica.com/arstechnica/index"
+  },
+  {
+    "name": "The Diplomat",
+    "category": "Defence & Security",
+    "url": "https://thediplomat.com/feed/"
+  },
+  {
+    "name": "The Conversation Business",
+    "category": "Business & Strategy",
+    "url": "https://theconversation.com/global/business/articles.atom"
+  },
+  {
+    "name": "The Conversation Politics",
+    "category": "India & Policy",
+    "url": "https://theconversation.com/global/politics/articles.atom"
+  },
+  {
+    "name": "Quanta Magazine",
+    "category": "Research",
+    "url": "https://www.quantamagazine.org/feed/"
+  },
+  {
+    "name": "VoxEU",
+    "category": "Economy & Policy",
+    "url": "https://cepr.org/voxeu/rss"
+  }
 ]

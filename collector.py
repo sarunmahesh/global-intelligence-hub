@@ -50,7 +50,7 @@ def parse(xml, source):
     return out
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('--edition',choices=['morning','evening','manual'],default='manual');args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--edition',choices=['morning','evening','manual'],default='manual');parser.add_argument('--backfill-days',type=int,default=0,help='Only import newly discovered articles published within N days (0 means no date filter)');args=parser.parse_args()
     now=dt.datetime.now(dt.timezone.utc);ist=dt.timezone(dt.timedelta(hours=5,minutes=30));local=now.astimezone(ist)
     sources=json.loads((ROOT/'sources.json').read_text());old=json.loads(DATA.read_text()) if DATA.exists() else {'articles':[]}
     indexed={x['id']:x for x in old.get('articles',[])};status=[];new=0
@@ -61,8 +61,12 @@ def main():
                 raw=response.read(1_500_000)
             records=parse(raw,src)
             for item in records:
+                if args.backfill_days:
+                    if not item.get('published_at'):continue
+                    published=dt.datetime.fromisoformat(item['published_at'].replace('Z','+00:00'))
+                    if not (now-dt.timedelta(days=args.backfill_days) <= published <= now+dt.timedelta(hours=2)):continue
                 if item['id'] not in indexed:
-                    item['edition_date']=local.date().isoformat();item['edition']=args.edition;indexed[item['id']]=item;new+=1
+                    item['edition_date']=local.date().isoformat();item['edition']=args.edition;item['verification']='Feed metadata only; not independently fact-checked';item['item_type']='Feed item';indexed[item['id']]=item;new+=1
             status.append({'source':src['name'],'ok':True,'items':len(records)})
         except Exception as e:
             status.append({'source':src['name'],'ok':False,'error':str(e)[:140]})
