@@ -1,9 +1,25 @@
-# All-source recovery (supplemental)
+# V1 Magazines & Newsletters — English-only
 
-Upload `recover_sources.py`, `recovery-requirements.txt`, and `.github/workflows/recover-sources.yml` to the corresponding paths in the existing GitHub repository. Do not delete `collector.py`, `sources.json`, or `data/articles.json`.
+This is an additive, independent page for the existing static Global Intelligence Hub V1. It does not replace or modify the daily article feed, collector, or bookmarks.
 
-Run Actions > Recover all publication feeds > Run workflow. Inspect logs and `data/articles.json` feed_status for results.
+## Install
 
-This is a best-effort public metadata recovery process, NOT a guarantee that every publisher can be ingested. It attempts the existing feed, limited candidate feeds, RSS/Atom autodiscovery from official homepages, and JSON-LD article metadata on official landing pages. It never bypasses a paywall or login. Some publishers block GitHub Actions or publish no RSS/JSON-LD; those require documented official APIs or manual publisher-specific integrations. URL candidates are not guaranteed valid. Site directory should link directly to the `homepage` value for unavailable sources.
+1. Copy `magazines.html` to the root of the V1 GitHub repository, alongside `index.html`.
+2. In the existing `index.html` sidebar `<nav id="nav">`, add `<a href="magazines.html">▤ Magazines & Newsletters</a>` and style it like the other navigation items, or add a simple link anywhere on the site.
+3. Commit and wait for the existing GitHub Pages deployment.
 
-This workflow runs at 07:45 and 18:45 IST, fifteen minutes after the existing collection schedule, and preserves prior articles. GitHub scheduled runs can be delayed. A source is `ok` only when this recovery run finds usable metadata; status can differ from the primary collector. It does not create verified summaries or deep editorial intelligence. It does not alter the UI's filter behaviour; clear the calendar when exploring publications until a frontend change is deployed.
+## Features
+
+- English-only directory; no Hindi entries.
+- Free-access source pages for UPSC, science/Nature, institutions, think tanks and business/economics.
+- Category, frequency, text search and saved-only filters.
+- Publisher links open in new tabs; local browser bookmarks.
+- Frequency is publisher-level metadata, not a claim that a new issue exists in any given month.
+- No external JavaScript libraries or PHP.
+
+## Limitations
+
+- Curated publication directory, not an automated issue/article scraper.
+- Free access is not guaranteed for every linked article or report, especially NBER and Chatham House.
+- Issue-level month/date, verified article titles, quotations and PDFs require a separate ingestion and verification process.
+- The existing repository's connector currently rejects writes with HTTP 403; this package has not been deployed.
